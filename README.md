@@ -23,8 +23,8 @@ You can visit live version via [link](#) (not deployed yet)
 ## Setup
 To run code locally, open your terminal and follow these steps:
 
-- `git clone (https://github.com/elmar8287/leaderboard.git)`
-- `cd leaderboard` 
+- `git clone (https://github.com/aliabbani/javaScript-capstone-project.git)`
+- `cd javaScript-capstone-project` 
 - `npm install`
 - `npm start` 
   
