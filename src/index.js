@@ -61,8 +61,8 @@ const generateHome = () => {
       div3.appendChild(div4);
       div4.appendChild(likeIcon);
       div4.appendChild(likeNumber);
-      div2.appendChild(commentButton);
-      div2.appendChild(reservationButton);
+      div5.appendChild(commentButton);
+      div5.appendChild(reservationButton);
 
       main.appendChild(section);
     });
