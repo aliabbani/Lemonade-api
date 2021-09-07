@@ -37,6 +37,49 @@ body {
   color: white;
 }
 
-.card {
+#main,
+.try {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 1fr;
+  margin: 0;
+  padding: 10vh 2vw;
+  grid-gap: 10px;
+}
+
+.card-group {
+  object-fit: cover;
+  width: 100%;
+}
+
+.cards {
   display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.card-img {
+  max-width: 100%;
+  max-height: 40vh;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
 }
