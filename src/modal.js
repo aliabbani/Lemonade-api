@@ -36,3 +36,6 @@ showButton.forEach((btn) => {
     });
   });
 });
+
+export default showDetails;
+export default showButton;
