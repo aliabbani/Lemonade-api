@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import _ from 'lodash';
+import _, { reduce } from 'lodash';
 import './style.css';
+// import generateHome from './dom.js';
 
-const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=e';
+const main = document.getElementById('main');
 
 const generateHome = () => {
+  const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=e';
   const displayFoods = (foods) => {
-    const main = document.getElementById('main');
     main.innerHTML = '';
 
     foods.meals.forEach((meal) => {
@@ -35,9 +36,12 @@ const generateHome = () => {
       div4.className = 'card-like';
       const likeIcon = document.createElement('i');
       likeIcon.className = 'far fa-heart';
+      likeIcon.addEventListener('click', () => {
+        likeIcon.style.color = 'red';
+      });
       const likeNumber = document.createElement('p');
       likeNumber.className = 'like-number';
-      likeNumber.innerHTML = '5 Likes';
+      likeNumber.innerHTML = '0 Likes';
       const div5 = document.createElement('div');
       div5.className = 'card-btn';
       const commentButton = document.createElement('button');
