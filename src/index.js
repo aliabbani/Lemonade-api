@@ -2,6 +2,7 @@
 import _, { reduce } from 'lodash';
 import './style.css';
 import generateHome from './dom.js';
+import showDetails from './modal.js';
 
 generateHome();
 showDetails();
