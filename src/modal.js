@@ -29,6 +29,5 @@ const showButton = document.querySelectorAll('.details-btn');
 showButton.forEach((btn) => {
   btn.addEventListener('click', (event) => {
     showDetails(event.target.dataset.id);
-    });
   });
 });
