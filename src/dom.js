@@ -1,13 +1,15 @@
 import postLike from './postLike.js';
+import getLikes from './getLikes.js';
 
 const main = document.getElementById('main');
 
 const generateHome = () => {
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=e';
-  const displayFoods = (foods) => {
+  const displayFoods = async (foods) => {
     main.innerHTML = '';
-
-    foods.meals.forEach((meal) => {
+    const allLikes = await getLikes();
+    console.log(allLikes);
+    foods.meals.forEach((meal, index) => {
       const section = document.createElement('section');
       section.className = 'card-group';
 
@@ -30,10 +32,15 @@ const generateHome = () => {
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
         await postLike(meal.idMeal);
+        const allLikes = await getLikes();
+        console.log(allLikes);
+        const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
+        console.log(allLikesNumbers);
+        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes} Likes`;
       });
       const likeNumber = document.createElement('p');
       likeNumber.className = 'like-number';
-      likeNumber.innerHTML = '0 Likes';
+      likeNumber.innerHTML = `${allLikes[index + 1].likes} likes`;
       const div5 = document.createElement('div');
       div5.className = 'card-btn';
       const commentButton = document.createElement('button');
