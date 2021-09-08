@@ -8,7 +8,7 @@ const generateHome = () => {
   const displayFoods = async (foods) => {
     main.innerHTML = '';
     const allLikes = await getLikes();
-    console.log(allLikes);
+    // console.log(allLikes);
     foods.meals.forEach((meal, index) => {
       const section = document.createElement('section');
       section.className = 'card-group';
@@ -33,9 +33,9 @@ const generateHome = () => {
         likeIcon.style.color = 'red';
         await postLike(meal.idMeal);
         const allLikes = await getLikes();
-        console.log(allLikes);
+        // console.log(allLikes);
         const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
-        console.log(allLikesNumbers);
+        // console.log(allLikesNumbers);
         allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes} Likes`;
       });
       const likeNumber = document.createElement('p');
