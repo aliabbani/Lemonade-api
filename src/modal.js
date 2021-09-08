@@ -4,7 +4,7 @@ const modalDetails = document.createElement('div');
 modalDetails.id = 'modal-details';
 modalDetails.className = 'meal-details';
 
-function showDetails(idMeal) {
+export default function showDetails(idMeal) {
   const mealsCode = `
   <div class="details-container">
   <span id="closeDetails">X</span>
@@ -25,7 +25,7 @@ function showDetails(idMeal) {
   });
 }
 
-const showButton = document.querySelectorAll('.details-btn');
+export const showButton = document.querySelectorAll('.details-btn');
 showButton.forEach((btn) => {
   btn.addEventListener('click', (event) => {
     showDetails(event.target.dataset.id);
