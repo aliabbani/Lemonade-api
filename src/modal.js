@@ -26,3 +26,13 @@ function showDetails(idMeal) {
     });
   });
 }
+
+const showButton = document.querySelectorAll('.details-btn');
+showButton.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    showDetails(event.target.dataset.id);
+    blurred.forEach((section) => {
+      section.style.filter = 'blur(5px)';
+    });
+  });
+});
