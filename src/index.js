@@ -6,7 +6,6 @@ import showDetails from './modal.js';
 
 generateHome();
 showDetails();
-showButton();
 
 generateHome.commentButton.addEventListener('click', (event) => {
   showDetails(event.target.dataset.idMeal);
