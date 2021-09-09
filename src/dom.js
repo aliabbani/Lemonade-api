@@ -83,7 +83,12 @@ const generateHome = () => {
           <button type="button">Comment</button>
           </div>
           </div>`;
-        
+        modalDetails.innerHTML += projectsCode;
+        document.body.appendChild(modalDetails);
+        document.getElementById('closeDetails').addEventListener('click', () => {
+          modalDetails.innerHTML = '';
+          document.body.removeChild(modalDetails);
+        });
       });
     });
   };
