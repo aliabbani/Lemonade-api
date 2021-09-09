@@ -1,11 +1,15 @@
+import postLike from './postLike.js';
+import getLikes from './getLikes.js';
+
 const main = document.getElementById('main');
 
 const generateHome = () => {
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=e';
-  const displayFoods = (foods) => {
+  const displayFoods = async (foods) => {
     main.innerHTML = '';
+    let allLikes = await getLikes();
 
-    foods.meals.forEach((meal) => {
+    foods.meals.forEach((meal, index) => {
       const section = document.createElement('section');
       section.className = 'card-group';
 
@@ -21,32 +25,26 @@ const generateHome = () => {
       const title = document.createElement('h4');
       title.className = 'card-title';
       title.innerHTML = `${meal.strMeal}`;
-      //   const p1 = document.createElement('p');
-      //   p1.className = 'origin';
-      //   p1.innerHTML = `Origin : ${meal.strArea}`;
-      //   const p2 = document.createElement('p');
-      //   p2.className = 'category';
-      //   p2.innerHTML = `Category : ${meal.strCategory}`;
       const div4 = document.createElement('div');
       div4.className = 'card-like';
       const likeIcon = document.createElement('i');
       likeIcon.className = 'far fa-heart';
-      likeIcon.addEventListener('click', () => {
+      likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
+        const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
+        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes + 1} Likes`;
+        await postLike(meal.idMeal);
+        allLikes = await getLikes();
       });
       const likeNumber = document.createElement('p');
       likeNumber.className = 'like-number';
-      likeNumber.innerHTML = '0 Likes';
+      likeNumber.innerHTML = `${allLikes[index + 1].likes} likes`;
       const div5 = document.createElement('div');
       div5.className = 'card-btn';
       const commentButton = document.createElement('button');
       commentButton.type = 'button';
       commentButton.className = 'CButton';
       commentButton.innerHTML = 'Comments';
-      const reservationButton = document.createElement('button');
-      reservationButton.type = 'button';
-      reservationButton.className = 'RButton';
-      reservationButton.innerHTML = 'Reservations';
 
       section.appendChild(div1);
       div1.appendChild(image);
@@ -55,13 +53,10 @@ const generateHome = () => {
       div2.appendChild(div4);
       div2.appendChild(div5);
       div3.appendChild(title);
-      //   div3.appendChild(p1);
-      //   div3.appendChild(p2);
       div3.appendChild(div4);
       div4.appendChild(likeIcon);
       div4.appendChild(likeNumber);
       div5.appendChild(commentButton);
-      div5.appendChild(reservationButton);
 
       main.appendChild(section);
     });
