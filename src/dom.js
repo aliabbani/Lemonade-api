@@ -1,5 +1,6 @@
 import postLike from './postLike.js';
 import getLikes from './getLikes.js';
+import homeCounter from './homeCounter.js';
 
 const main = document.getElementById('main');
 
@@ -90,6 +91,10 @@ const generateHome = () => {
         });
       });
     });
+
+    const counterDisplay = document.querySelector('.nav-item-1');
+    const count = Array.from(document.querySelectorAll('.card-group'));
+    counterDisplay.innerHTML = `${homeCounter(count)} Dishes`;
   };
   fetch(url)
     .then((res) => res.json())
