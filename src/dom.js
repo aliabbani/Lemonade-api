@@ -28,7 +28,7 @@ const generateHome = () => {
       const div4 = document.createElement('div');
       div4.className = 'card-like';
       const likeIcon = document.createElement('i');
-      likeIcon.className = 'far fa-heart';
+      likeIcon.className = 'far fa-heart fa-1x';
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
         const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
@@ -43,7 +43,7 @@ const generateHome = () => {
       div5.className = 'card-btn';
       const commentButton = document.createElement('button');
       commentButton.type = 'button';
-      commentButton.className = 'CButton';
+      commentButton.className = 'CButton btn btn-primary';
       commentButton.innerHTML = 'Comments';
 
       section.appendChild(div1);
