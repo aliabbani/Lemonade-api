@@ -45,10 +45,10 @@ body {
 }
 
 .copyright-text {
-  color: white;
+  color: #fff;
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 840px) {
   .logo {
     padding: 0 10vw;
   }
@@ -59,10 +59,10 @@ body {
   }
 
   .nav-item-1 {
-    color: white;
+    color: #fff;
     padding-left: 5vw;
     text-decoration: none;
-    font-weight: 650;
+    font-weight: 600;
     font-size: 25px;
   }
 
@@ -80,8 +80,8 @@ body {
     grid-template-columns: auto auto auto;
     grid-template-rows: 1fr 1fr;
     margin: 0;
-    padding: 10vh 2vw;
-    grid-gap: 20px;
+    padding: 5vh 2vw;
+    grid-gap: 3rem;
   }
 
   .card-group {
@@ -90,28 +90,15 @@ body {
     width: 100%;
   }
 
-  .cards {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-  }
-
-  .card-img {
+  .card-img-top {
     max-width: 100%;
-    max-height: 30vh;
+    max-height: 50vh;
   }
 
   .card-body {
     display: flex;
     flex-direction: column;
   }
-
-  /* .title-info {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-  } */
 
   .card-title {
     margin: 0;
@@ -120,6 +107,6 @@ body {
   .card-btn {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    padding: 0 6vw 0 0;
   }
 }

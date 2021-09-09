@@ -14,9 +14,9 @@ const generateHome = () => {
       section.className = 'card-group';
 
       const div1 = document.createElement('div');
-      div1.className = 'cards';
+      div1.className = 'card';
       const image = document.createElement('img');
-      image.className = 'card-img';
+      image.className = 'card-img-top';
       image.src = `${meal.strMealThumb}`;
       const div2 = document.createElement('div');
       div2.className = 'card-body';
