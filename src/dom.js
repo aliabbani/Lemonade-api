@@ -94,9 +94,6 @@ const generateHome = () => {
 
     const counterDisplay = document.querySelector('.nav-item-1');
     const count = Array.from(document.querySelectorAll('.card-group'));
-    // console.log(count);
-    // count.unshift();
-    // console.log(count);
     counterDisplay.innerHTML = `${homeCounter(count)} Dishes`;
   };
   fetch(url)
