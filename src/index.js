@@ -6,13 +6,9 @@ import generateHome from './dom.js';
 import showDetails from './modal.js';
 
 generateHome();
-<<<<<<< HEAD
-=======
 
 showDetails();
 
 generateHome.commentButton.addEventListener('click', (event) => {
   showDetails(event.target.dataset.idMeal);
 });
-
->>>>>>> d9618618da9af017317e83facb88047e7d7a9604

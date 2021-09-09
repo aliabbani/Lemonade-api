@@ -7,7 +7,7 @@ const generateHome = () => {
   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=e';
   const displayFoods = async (foods) => {
     main.innerHTML = '';
-    const allLikes = await getLikes();
+    let allLikes = await getLikes();
     // console.log(allLikes);
     foods.meals.forEach((meal, index) => {
       const section = document.createElement('section');
@@ -31,12 +31,12 @@ const generateHome = () => {
       likeIcon.className = 'far fa-heart';
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
-        await postLike(meal.idMeal);
-        const allLikes = await getLikes();
-        // console.log(allLikes);
         const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
+        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes + 1} Likes`;
+        await postLike(meal.idMeal);
+        allLikes = await getLikes();
+        // console.log(allLikes);
         // console.log(allLikesNumbers);
-        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes} Likes`;
       });
       const likeNumber = document.createElement('p');
       likeNumber.className = 'like-number';
