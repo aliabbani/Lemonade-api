@@ -109,6 +109,7 @@ body {
     flex-direction: column;
     padding: 0 6vw 0 0;
   }
+}
 
 .details-container {
   background-color: rgb(231, 231, 231);
