@@ -8,7 +8,7 @@ const generateHome = () => {
   const displayFoods = async (foods) => {
     main.innerHTML = '';
     let allLikes = await getLikes();
-    // console.log(allLikes);
+
     foods.meals.forEach((meal, index) => {
       const section = document.createElement('section');
       section.className = 'card-group';
@@ -35,8 +35,6 @@ const generateHome = () => {
         allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes + 1} Likes`;
         await postLike(meal.idMeal);
         allLikes = await getLikes();
-        // console.log(allLikes);
-        // console.log(allLikesNumbers);
       });
       const likeNumber = document.createElement('p');
       likeNumber.className = 'like-number';
