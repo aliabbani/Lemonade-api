@@ -59,7 +59,32 @@ const generateHome = () => {
 
       main.appendChild(section);
 
-      
+      commentButton.addEventListener('click', () => {
+        console.log('Hello');
+        const modalDetails = document.createElement('div');
+        modalDetails.id = 'modal-details';
+        modalDetails.className = 'project-details';
+        const projectsCode = `
+          <div class="details-container">
+          <span id="closeDetails">X</span>
+          <img src="${meal.strMealThumb}">
+          <h2 class="project-title">${meal.strMeal}</h2>
+          <h4>Category: ${meal.strCategory}</h4>
+          <div class="stats">
+              <p>${meal.strInstructions}</p>
+          </div>
+          <div class="commentsDiv">
+          <ul>
+          <li>Here will be comments</li>
+          </ul>
+          <h3>Add a comment</h3>
+          <input type="text" placeholder="Your name" />
+          <input type="text" placeholder="Your insights" />
+          <button type="button">Comment</button>
+          </div>
+          </div>`;
+        
+      });
     });
   };
   fetch(url)
