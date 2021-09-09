@@ -1,5 +1,6 @@
 import postLike from './postLike.js';
 import getLikes from './getLikes.js';
+import homeCounter from './homeCounter.js';
 
 const main = document.getElementById('main');
 
@@ -60,15 +61,7 @@ const generateHome = () => {
 
       main.appendChild(section);
 
-      const counterDisplay = document.querySelector('.nav-item-1');
-      let count = 0;
-
-      const counter = () => {
-        count = Array.from(document.querySelectorAll('section')).length;
-        counterDisplay.innerHTML = `${count} Dishes`;
-      };
-      // console.log(counter());
-      counter();
+      homeCounter();
     });
   };
   fetch(url)

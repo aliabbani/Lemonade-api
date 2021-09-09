@@ -1,3 +1,0 @@
-// const counter = (count)=> {
-
-// }
