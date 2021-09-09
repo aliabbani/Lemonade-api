@@ -59,6 +59,16 @@ const generateHome = () => {
       div5.appendChild(commentButton);
 
       main.appendChild(section);
+
+      const counterDisplay = document.querySelector('.nav-item-1');
+      let count = 0;
+
+      const counter = () => {
+        count = Array.from(document.querySelectorAll('section')).length;
+        counterDisplay.innerHTML = `${count} Dishes`;
+      };
+      // console.log(counter());
+      counter();
     });
   };
   fetch(url)
