@@ -60,7 +60,6 @@ const generateHome = () => {
 
       main.appendChild(section);
 
-      homeCounter();
       commentButton.addEventListener('click', () => {
         const modalDetails = document.createElement('div');
         modalDetails.id = 'modal-details';
@@ -92,6 +91,13 @@ const generateHome = () => {
         });
       });
     });
+
+    const counterDisplay = document.querySelector('.nav-item-1');
+    const count = Array.from(document.querySelectorAll('.card-group'));
+    // console.log(count);
+    // count.unshift();
+    // console.log(count);
+    counterDisplay.innerHTML = `${homeCounter(count)} Dishes`;
   };
   fetch(url)
     .then((res) => res.json())
