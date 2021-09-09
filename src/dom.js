@@ -45,7 +45,6 @@ const generateHome = () => {
       commentButton.type = 'button';
       commentButton.className = 'CButton';
       commentButton.innerHTML = 'Comments';
-
       section.appendChild(div1);
       div1.appendChild(image);
       div1.appendChild(div2);
@@ -59,11 +58,14 @@ const generateHome = () => {
       div5.appendChild(commentButton);
 
       main.appendChild(section);
+
+      
     });
   };
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayFoods(data));
 };
+
 
 export default generateHome;
