@@ -60,7 +60,6 @@ const generateHome = () => {
       main.appendChild(section);
 
       commentButton.addEventListener('click', () => {
-        console.log('Hello');
         const modalDetails = document.createElement('div');
         modalDetails.id = 'modal-details';
         modalDetails.className = 'project-details';
@@ -96,6 +95,5 @@ const generateHome = () => {
     .then((res) => res.json())
     .then((data) => displayFoods(data));
 };
-
 
 export default generateHome;
