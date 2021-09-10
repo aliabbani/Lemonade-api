@@ -96,6 +96,14 @@ const generateHome = () => {
             comment: userComment,
           };
           await postComment(body);
+          const allComments = await getComments(meal.idMeal);
+          const ul = document.querySelector('.comment-list');
+          allComments.forEach((commentObject) => {
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `${commentObject.creation_date} ${commentObject.username}: ${commentObject.comment}`;
+            ul.appendChild(li);
+          });
         });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
