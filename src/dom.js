@@ -35,12 +35,8 @@ const generateHome = () => {
       likeIcon.className = 'far fa-heart fa-1x';
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
-        const allLikesNumbers = Array.from(
-          document.querySelectorAll('.like-number')
-        );
-        allLikesNumbers[index].innerHTML = `${
-          allLikes[index + 1].likes + 1
-        } Likes`;
+        const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
+        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes + 1} Likes`;
         await postLike(meal.idMeal);
         allLikes = await getLikes();
       });
@@ -96,9 +92,7 @@ const generateHome = () => {
         const ul = document.querySelector('.comment-list');
         ul.innerHTML = '';
         if (!allComments.error) {
-          document.querySelector(
-            '.comment-count'
-          ).innerHTML = `Comments (${commentCounter(allComments)})`;
+          document.querySelector('.comment-count').innerHTML = `Comments (${commentCounter(allComments)})`;
         }
         if (!allComments.error) {
           allComments.forEach((commentObject) => {
@@ -120,9 +114,7 @@ const generateHome = () => {
           if (userName && userComment) {
             await postComment(body);
             const allComments = await getComments(meal.idMeal);
-            document.querySelector(
-              '.comment-count'
-            ).innerHTML = `Comments (${commentCounter(allComments)})`;
+            document.querySelector('.comment-count').innerHTML = `Comments (${commentCounter(allComments)})`;
             const ul = document.querySelector('.comment-list');
             const lastComment = allComments.pop();
             const li = document.createElement('li');
