@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1631295131626" clover="3.2.0">
+  <project timestamp="1631295131626" name="All files">
+    <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="7" coveredelements="7" complexity="0" loc="4" ncloc="4" packages="1" files="3" classes="3"/>
+    <file name="commentCounter.js" path="C:\Users\User\Documents\MICROVERSE\final-js-capstone\javaScript-capstone-project\src\commentCounter.js">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="4" type="stmt"/>
+    </file>
+    <file name="homeCounter.js" path="C:\Users\User\Documents\MICROVERSE\final-js-capstone\javaScript-capstone-project\src\homeCounter.js">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="2" type="stmt"/>
+    </file>
+    <file name="sum.js" path="C:\Users\User\Documents\MICROVERSE\final-js-capstone\javaScript-capstone-project\src\sum.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
