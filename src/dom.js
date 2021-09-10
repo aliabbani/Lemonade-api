@@ -110,15 +110,19 @@ const generateHome = () => {
             username: userName,
             comment: userComment,
           };
-          await postComment(body);
-          const allComments = await getComments(meal.idMeal);
-          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
-          const ul = document.querySelector('.comment-list');
-          const lastComment = allComments.pop();
-          const li = document.createElement('li');
-          li.className = 'comment-item';
-          li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
-          ul.appendChild(li);
+          if (userName && userComment) {
+            await postComment(body);
+            const allComments = await getComments(meal.idMeal);
+            document.querySelector('.comment-count').innerHTML = `Comments (${commentCounter(allComments)})`;
+            const ul = document.querySelector('.comment-list');
+            const lastComment = allComments.pop();
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
+            ul.appendChild(li);
+            document.querySelector('.name').value = '';
+            document.querySelector('.comment').value = '';
+          }
         });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
