@@ -6,17 +6,19 @@ const commentCounter = (itemId) => {
 
 const popup = () => {
   const commentBtns = document.querySelectorAll('.comment-btn');
-  commentBtns.forEach((button) => button.addEventListener('click', (e) => {
-    const itemInfo = document.getElementById(Number(e.target.id) + 1);
-    const memeContainer = document.getElementById('popup');
-    const gridContainer = document.querySelector('.grid-section');
-    gridContainer.classList.remove('visible');
-    gridContainer.classList.add('hidden');
-    memeContainer.classList.add('visible');
-    itemInfo.classList.remove('hidden');
-    itemInfo.classList.add('visible');
-    commentCounter(e.target.id);
-  }));
+  commentBtns.forEach((button) =>
+    button.addEventListener('click', (e) => {
+      const itemInfo = document.getElementById(Number(e.target.id) + 1);
+      const memeContainer = document.getElementById('popup');
+      const gridContainer = document.querySelector('.grid-section');
+      gridContainer.classList.remove('visible');
+      gridContainer.classList.add('hidden');
+      memeContainer.classList.add('visible');
+      itemInfo.classList.remove('hidden');
+      itemInfo.classList.add('visible');
+      commentCounter(e.target.id);
+    })
+  );
 
   const closeBtns = document.querySelectorAll('.close-btn');
   const closePopup = () => {
@@ -33,11 +35,13 @@ const popup = () => {
     gridContainer.classList.add('visible');
   };
 
-  closeBtns.forEach((closeBtn) => closeBtn.addEventListener('click', (e) => {
-    const title = e.target.parentNode.childNodes[3].childNodes[0];
-    title.innerHTML = 'Comments';
-    closePopup();
-  }));
+  closeBtns.forEach((closeBtn) =>
+    closeBtn.addEventListener('click', (e) => {
+      const title = e.target.parentNode.childNodes[3].childNodes[0];
+      title.innerHTML = 'Comments';
+      closePopup();
+    })
+  );
 };
 
 export default popup;
