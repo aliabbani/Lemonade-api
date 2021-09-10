@@ -79,8 +79,8 @@ const generateHome = () => {
           <h4 class="comment-count">Comments (0)</h4>
           <ul class="comment-list"></ul>
           <h3>Add a comment</h3>
-          <input type="text" placeholder="Your name" class="name"/>
-          <input type="text" placeholder="Your insights" class="comment"/>
+          <input type="text" placeholder="Your name" class="name"/><br><br>
+          <textarea placeholder="Your insights" class="comment" name="comments" rows="4" cols="50"></textarea><br><br>
           <button type="button" id="save-comment">Comment</button>
           </div>
           </div>`;
