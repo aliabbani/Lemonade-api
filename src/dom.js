@@ -76,7 +76,7 @@ const generateHome = () => {
               <p>${meal.strInstructions}</p>
           </div>
           <div class="commentsDiv">
-          <h4 class="comment">Comments (0)</h4>
+          <h4 class="comment-count">Comments (0)</h4>
           <ul class="comment-list"></ul>
           <h3>Add a comment</h3>
           <input type="text" placeholder="Your name" class="name"/>
@@ -91,6 +91,9 @@ const generateHome = () => {
         console.log(allComments);
         const ul = document.querySelector('.comment-list');
         ul.innerHTML = '';
+        if (!allComments.error) {
+          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
+        };
         if (!allComments.error) {
           allComments.forEach((commentObject) => {
             const li = document.createElement('li');
