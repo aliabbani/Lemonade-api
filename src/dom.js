@@ -3,6 +3,8 @@ import getLikes from './getLikes.js';
 import homeCounter from './homeCounter.js';
 import getComments from './getComments.js';
 import postComment from './postComment.js';
+import commentCounter from './commentCounter.js';
+
 
 const main = document.getElementById('main');
 
@@ -77,11 +79,11 @@ const generateHome = () => {
           </div>
           <div class="commentsDiv">
           <h4 class="comment-count">Comments (0)</h4>
-          <ul class="comment-list"></ul>
+          <ul class="comment-list list-unstyled"></ul>
           <h3>Add a comment</h3>
-          <input type="text" placeholder="Your name" class="name"/>
-          <input type="text" placeholder="Your insights" class="comment"/>
-          <button type="button" id="save-comment">Comment</button>
+          <input type="text" placeholder="Your name" class="name"/><br><br>
+          <textarea placeholder="Your insights" class="comment" name="comments" rows="4" cols="50"></textarea><br><br>
+          <button type="button" id="save-comment" class="CButton btn btn-primary">Comment</button>
           </div>
           </div>`;
         modalDetails.innerHTML += projectsCode;
@@ -91,7 +93,7 @@ const generateHome = () => {
         const ul = document.querySelector('.comment-list');
         ul.innerHTML = '';
         if (!allComments.error) {
-          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
+          document.querySelector('.comment-count').innerHTML = `Comments (${commentCounter(allComments)})`;
         }
         if (!allComments.error) {
           allComments.forEach((commentObject) => {
@@ -110,15 +112,19 @@ const generateHome = () => {
             username: userName,
             comment: userComment,
           };
-          await postComment(body);
-          const allComments = await getComments(meal.idMeal);
-          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
-          const ul = document.querySelector('.comment-list');
-          const lastComment = allComments.pop();
-          const li = document.createElement('li');
-          li.className = 'comment-item';
-          li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
-          ul.appendChild(li);
+          if (userName && userComment) {
+            await postComment(body);
+            const allComments = await getComments(meal.idMeal);
+            document.querySelector('.comment-count').innerHTML = `Comments (${commentCounter(allComments)})`;
+            const ul = document.querySelector('.comment-list');
+            const lastComment = allComments.pop();
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
+            ul.appendChild(li);
+            document.querySelector('.name').value = '';
+            document.querySelector('.comment').value = '';
+          }
         });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
