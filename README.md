@@ -22,6 +22,10 @@ This is about building web application based on an external API. we selected an 
 
 [Live Demo Link](https://aliabbani.github.io/javaScript-capstone-project/dist)
 
+## Video Link
+
+[Project video Link](https://drive.google.com/file/d/1jUQ8A0Iez3eQBxhPhrEkIRiX9xf_o5kl/view?usp=sharing)
+
 ## Getting Started
 
 ### To get a local copy up and running follow these simple example steps.
