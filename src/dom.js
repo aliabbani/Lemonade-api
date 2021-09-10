@@ -5,7 +5,6 @@ import getComments from './getComments.js';
 import postComment from './postComment.js';
 import commentCounter from './commentCounter.js';
 
-
 const main = document.getElementById('main');
 
 const generateHome = () => {
