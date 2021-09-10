@@ -3,6 +3,7 @@ import getLikes from './getLikes.js';
 import homeCounter from './homeCounter.js';
 import getComments from './getComments.js';
 import postComment from './postComment.js';
+import { last } from 'lodash';
 
 const main = document.getElementById('main');
 
@@ -113,14 +114,13 @@ const generateHome = () => {
           };
           await postComment(body);
           const allComments = await getComments(meal.idMeal);
+          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
           const ul = document.querySelector('.comment-list');
-          ul.innerHTML = '';
-          allComments.forEach((commentObject) => {
-            const li = document.createElement('li');
-            li.className = 'comment-item';
-            li.innerHTML = `${commentObject.creation_date} ${commentObject.username}: ${commentObject.comment}`;
-            ul.appendChild(li);
-          });
+          const lastComment = allComments.pop();
+          const li = document.createElement('li');
+          li.className = 'comment-item';
+          li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
+          ul.appendChild(li);
         });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
