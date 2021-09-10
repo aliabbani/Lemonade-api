@@ -62,7 +62,7 @@ const generateHome = () => {
 
       main.appendChild(section);
 
-      commentButton.addEventListener('click', () => {
+      commentButton.addEventListener('click', async () => {
         const modalDetails = document.createElement('div');
         modalDetails.id = 'modal-details';
         modalDetails.className = 'project-details';
@@ -76,6 +76,7 @@ const generateHome = () => {
               <p>${meal.strInstructions}</p>
           </div>
           <div class="commentsDiv">
+          <h4 class="comment">Comments (0)</h4>
           <ul class="comment-list"></ul>
           <h3>Add a comment</h3>
           <input type="text" placeholder="Your name" class="name"/>
@@ -86,6 +87,18 @@ const generateHome = () => {
         modalDetails.innerHTML += projectsCode;
         document.body.appendChild(modalDetails);
         const saveComment = document.getElementById('save-comment');
+        const allComments = await getComments(meal.idMeal);
+        console.log(allComments);
+        const ul = document.querySelector('.comment-list');
+        ul.innerHTML = '';
+        if (!allComments.error) {
+          allComments.forEach((commentObject) => {
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `${commentObject.creation_date} ${commentObject.username}: ${commentObject.comment}`;
+            ul.appendChild(li);
+          });
+        }
         saveComment.addEventListener('click', async () => {
           const userName = document.querySelector('.name').value;
           const userComment = document.querySelector('.comment').value;
@@ -98,6 +111,7 @@ const generateHome = () => {
           await postComment(body);
           const allComments = await getComments(meal.idMeal);
           const ul = document.querySelector('.comment-list');
+          ul.innerHTML = '';
           allComments.forEach((commentObject) => {
             const li = document.createElement('li');
             li.className = 'comment-item';
