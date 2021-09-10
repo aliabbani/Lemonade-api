@@ -49,6 +49,10 @@ body {
 }
 
 @media screen and (min-width: 840px) {
+  .fa-heart {
+    cursor: pointer;
+  }
+
   .logo {
     padding: 0 10vw;
   }
