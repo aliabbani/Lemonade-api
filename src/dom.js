@@ -1,6 +1,8 @@
 import postLike from './postLike.js';
 import getLikes from './getLikes.js';
 import homeCounter from './homeCounter.js';
+import getComments from './getComments.js';
+import postComment from './postComment.js';
 
 const main = document.getElementById('main');
 
@@ -60,7 +62,7 @@ const generateHome = () => {
 
       main.appendChild(section);
 
-      commentButton.addEventListener('click', () => {
+      commentButton.addEventListener('click', async () => {
         const modalDetails = document.createElement('div');
         modalDetails.id = 'modal-details';
         modalDetails.className = 'project-details';
@@ -74,17 +76,50 @@ const generateHome = () => {
               <p>${meal.strInstructions}</p>
           </div>
           <div class="commentsDiv">
-          <ul>
-          <li>Here will be comments</li>
-          </ul>
+          <h4 class="comment-count">Comments (0)</h4>
+          <ul class="comment-list"></ul>
           <h3>Add a comment</h3>
-          <input type="text" placeholder="Your name" />
-          <input type="text" placeholder="Your insights" />
-          <button type="button">Comment</button>
+          <input type="text" placeholder="Your name" class="name"/>
+          <input type="text" placeholder="Your insights" class="comment"/>
+          <button type="button" id="save-comment">Comment</button>
           </div>
           </div>`;
         modalDetails.innerHTML += projectsCode;
         document.body.appendChild(modalDetails);
+        const saveComment = document.getElementById('save-comment');
+        const allComments = await getComments(meal.idMeal);
+        const ul = document.querySelector('.comment-list');
+        ul.innerHTML = '';
+        if (!allComments.error) {
+          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
+        }
+        if (!allComments.error) {
+          allComments.forEach((commentObject) => {
+            const li = document.createElement('li');
+            li.className = 'comment-item';
+            li.innerHTML = `${commentObject.creation_date} ${commentObject.username}: ${commentObject.comment}`;
+            ul.appendChild(li);
+          });
+        }
+        saveComment.addEventListener('click', async () => {
+          const userName = document.querySelector('.name').value;
+          const userComment = document.querySelector('.comment').value;
+          const id = meal.idMeal;
+          const body = {
+            item_id: id,
+            username: userName,
+            comment: userComment,
+          };
+          await postComment(body);
+          const allComments = await getComments(meal.idMeal);
+          document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
+          const ul = document.querySelector('.comment-list');
+          const lastComment = allComments.pop();
+          const li = document.createElement('li');
+          li.className = 'comment-item';
+          li.innerHTML = `${lastComment.creation_date} ${lastComment.username}: ${lastComment.comment}`;
+          ul.appendChild(li);
+        });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
           document.body.removeChild(modalDetails);
