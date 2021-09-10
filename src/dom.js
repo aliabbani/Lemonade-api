@@ -86,9 +86,7 @@ const generateHome = () => {
         modalDetails.innerHTML += projectsCode;
         document.body.appendChild(modalDetails);
         const saveComment = document.getElementById('save-comment');
-        console.log(saveComment);
         saveComment.addEventListener('click', async () => {
-          console.log('hello');
           const userName = document.querySelector('.name').value;
           const userComment = document.querySelector('.comment').value;
           const id = meal.idMeal;
@@ -97,8 +95,7 @@ const generateHome = () => {
             username: userName,
             comment: userComment,
           };
-          const results = await postComment(body);
-          console.log(results);
+          await postComment(body);
         });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
