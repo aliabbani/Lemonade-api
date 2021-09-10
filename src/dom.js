@@ -3,7 +3,6 @@ import getLikes from './getLikes.js';
 import homeCounter from './homeCounter.js';
 import getComments from './getComments.js';
 import postComment from './postComment.js';
-import { last } from 'lodash';
 
 const main = document.getElementById('main');
 
@@ -89,12 +88,11 @@ const generateHome = () => {
         document.body.appendChild(modalDetails);
         const saveComment = document.getElementById('save-comment');
         const allComments = await getComments(meal.idMeal);
-        console.log(allComments);
         const ul = document.querySelector('.comment-list');
         ul.innerHTML = '';
         if (!allComments.error) {
           document.querySelector('.comment-count').innerHTML = `Comments (${allComments.length})`;
-        };
+        }
         if (!allComments.error) {
           allComments.forEach((commentObject) => {
             const li = document.createElement('li');
