@@ -11,61 +11,22 @@ body {
 
 .nav {
   display: flex;
-  background-color: blueviolet;
-  color: white;
+  background-color: #0d6efd;
+  color: #fff;
   align-items: baseline;
   padding: 1vh 0;
 }
 
 .logo {
-  padding: 0 10vw;
+  padding: 0 19vw;
 }
 
-.nav-item-1 {
-  color: white;
-  padding-left: 5vw;
-  text-decoration: none;
-}
-
-.copyright {
-  background-color: blueviolet;
-  padding: 1vh 5vw;
-  margin-top: 10px;
-}
-
-.copyright-text {
-  color: white;
-}
-
-#main,
-.try {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: 1fr 1fr;
-  margin: 0;
-  padding: 10vh 2vw;
-  grid-gap: 20px;
+.nav-items {
+  display: none;
 }
 
 .card-group {
-  object-fit: cover;
-  width: 100%;
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
-.card-img {
-  max-width: 100%;
-  max-height: 30vh;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
+  padding-bottom: 2.5vh;
 }
 
 .title-info {
@@ -75,14 +36,79 @@ body {
   justify-content: space-between;
 }
 
-.card-title {
-  margin: 0;
+.copyright {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 1vh 5vw;
+  margin-top: 10px;
+  font-size: 13px;
 }
 
-.card-btn {
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
+.copyright-text {
+  color: #fff;
+}
+
+@media screen and (min-width: 840px) {
+  .logo {
+    padding: 0 10vw;
+  }
+
+  .nav-items {
+    display: flex;
+    padding-left: 10vw;
+  }
+
+  .nav-item-1 {
+    color: #fff;
+    padding-left: 5vw;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .nav-item-1:hover {
+    color: #ddeafb;
+  }
+
+  .copyright {
+    font-size: 25px;
+  }
+
+  #main,
+  .try {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+    margin: 0;
+    padding: 5vh 2vw;
+    grid-gap: 3rem;
+  }
+
+  .card-group {
+    padding-bottom: 0;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-img-top {
+    max-width: 100%;
+    max-height: 50vh;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    margin: 0;
+  }
+
+  .card-btn {
+    display: flex;
+    flex-direction: column;
+    padding: 0 6vw 0 0;
+  }
 }
 
 .details-container {

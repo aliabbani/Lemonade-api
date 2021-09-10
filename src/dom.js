@@ -15,9 +15,9 @@ const generateHome = () => {
       section.className = 'card-group';
 
       const div1 = document.createElement('div');
-      div1.className = 'cards';
+      div1.className = 'card';
       const image = document.createElement('img');
-      image.className = 'card-img';
+      image.className = 'card-img-top';
       image.src = `${meal.strMealThumb}`;
       const div2 = document.createElement('div');
       div2.className = 'card-body';
@@ -29,7 +29,7 @@ const generateHome = () => {
       const div4 = document.createElement('div');
       div4.className = 'card-like';
       const likeIcon = document.createElement('i');
-      likeIcon.className = 'far fa-heart';
+      likeIcon.className = 'far fa-heart fa-1x';
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
         const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
@@ -44,7 +44,7 @@ const generateHome = () => {
       div5.className = 'card-btn';
       const commentButton = document.createElement('button');
       commentButton.type = 'button';
-      commentButton.className = 'CButton';
+      commentButton.className = 'CButton btn btn-primary';
       commentButton.innerHTML = 'Comments';
       section.appendChild(div1);
       div1.appendChild(image);
