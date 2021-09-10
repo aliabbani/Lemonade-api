@@ -1,6 +1,8 @@
 import postLike from './postLike.js';
 import getLikes from './getLikes.js';
 import homeCounter from './homeCounter.js';
+import getComments from './getComments.js';
+import postComment from './postComment.js';
 
 const main = document.getElementById('main');
 
@@ -74,17 +76,30 @@ const generateHome = () => {
               <p>${meal.strInstructions}</p>
           </div>
           <div class="commentsDiv">
-          <ul>
-          <li>Here will be comments</li>
-          </ul>
+          <ul class="comment-list"></ul>
           <h3>Add a comment</h3>
-          <input type="text" placeholder="Your name" />
-          <input type="text" placeholder="Your insights" />
-          <button type="button">Comment</button>
+          <input type="text" placeholder="Your name" class="name"/>
+          <input type="text" placeholder="Your insights" class="comment"/>
+          <button type="button" id="save-comment">Comment</button>
           </div>
           </div>`;
         modalDetails.innerHTML += projectsCode;
         document.body.appendChild(modalDetails);
+        const saveComment = document.getElementById('save-comment');
+        console.log(saveComment);
+        saveComment.addEventListener('click', async () => {
+          console.log('hello');
+          const userName = document.querySelector('.name').value;
+          const userComment = document.querySelector('.comment').value;
+          const id = meal.idMeal;
+          const body = {
+            item_id: id,
+            username: userName,
+            comment: userComment,
+          };
+          const results = await postComment(body);
+          console.log(results);
+        });
         document.getElementById('closeDetails').addEventListener('click', () => {
           modalDetails.innerHTML = '';
           document.body.removeChild(modalDetails);
