@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 1vw;
+  font-family: sans-serif;
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  background-color: #0d6efd;
+  color: #fff;
+  align-items: baseline;
+  padding: 1vh 0;
+}
+
+.logo {
+  padding: 0 19vw;
+}
+
+.nav-items {
+  display: none;
+}
+
+.card-group {
+  padding-bottom: 2.5vh;
+}
+
+.title-info {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.copyright {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 1vh 5vw;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.copyright-text {
+  color: #fff;
+}
+
+@media screen and (min-width: 840px) {
+  .fa-heart {
+    cursor: pointer;
+  }
+
+  .logo {
+    padding: 0 10vw;
+  }
+
+  .nav-items {
+    display: flex;
+    padding-left: 10vw;
+  }
+
+  .nav-item-1 {
+    color: #fff;
+    padding-left: 5vw;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .nav-item-1:hover {
+    color: #ddeafb;
+  }
+
+  .copyright {
+    font-size: 25px;
+  }
+
+  #main,
+  .try {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+    margin: 0;
+    padding: 5vh 2vw;
+    grid-gap: 3rem;
+  }
+
+  .card-group {
+    padding-bottom: 0;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-img-top {
+    max-width: 100%;
+    max-height: 50vh;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    margin: 0;
+  }
+
+  .card-btn {
+    display: flex;
+    flex-direction: column;
+    padding: 0 6vw 0 0;
+  }
+}
+
+.details-container {
+  background-color: rgb(231, 231, 231);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  clear: left;
+  z-index: 3;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.details-container img {
+  width: 25%;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.details-container span {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: right;
+}
