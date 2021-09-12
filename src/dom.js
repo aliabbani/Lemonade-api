@@ -36,7 +36,9 @@ const generateHome = () => {
       likeIcon.addEventListener('click', async () => {
         likeIcon.style.color = 'red';
         const allLikesNumbers = Array.from(document.querySelectorAll('.like-number'));
-        allLikesNumbers[index].innerHTML = `${allLikes[index + 1].likes + 1} Likes`;
+        allLikesNumbers[index].innerHTML = `${
+          allLikes[index + 1].likes + 1
+        } Likes`;
         await postLike(meal.idMeal);
         allLikes = await getLikes();
       });
@@ -69,21 +71,29 @@ const generateHome = () => {
         modalDetails.className = 'project-details';
         const projectsCode = `
           <div class="details-container">
-          <span id="closeDetails">X</span>
-          <img src="${meal.strMealThumb}">
-          <h2 class="project-title">${meal.strMeal}</h2>
-          <h4>Category: ${meal.strCategory}</h4>
-          <div class="stats">
+            <span id="closeDetails">X</span>
+            <img src="${meal.strMealThumb}" class="popup-image">
+            <div class="popup-title">
+              <h2 class="project-title">${meal.strMeal}</h2>
+            </div>
+            <h4>Category: ${meal.strCategory}</h4>
+            <div class="stats">
               <p>${meal.strInstructions}</p>
-          </div>
-          <div class="commentsDiv">
-          <h4 class="comment-count">Comments (0)</h4>
-          <ul class="comment-list"></ul>
-          <h3>Add a comment</h3>
-          <input type="text" placeholder="Your name" class="name"/><br><br>
-          <textarea placeholder="Your insights" class="comment" name="comments" rows="4" cols="50"></textarea><br><br>
-          <button type="button" id="save-comment">Comment</button>
-          </div>
+            </div>
+            <div class="commentsDiv">
+              <div class="comment-center">
+                <h4 class="comment-count">Comments (0)</h4>
+              </div>
+              <ul class="comment-list"></ul>
+              <div class="add-comment-center">
+                <h3>Add a comment</h3>
+              </div>
+              <div class="comment-input">
+              <input type="text" placeholder="Your name" class="name"/>
+              <textarea placeholder="Your comment" class="comment" name="comments" rows="4" cols="50"></textarea>
+              </div>
+              <button type="button" id="save-comment" class="btn btn-primary popup-comment">Comment</button>
+            </div>
           </div>`;
         modalDetails.innerHTML += projectsCode;
         document.body.appendChild(modalDetails);
