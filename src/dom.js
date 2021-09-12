@@ -74,7 +74,7 @@ const generateHome = () => {
         const projectsCode = `
           <div class="details-container">
             <span id="closeDetails">X</span>
-            <img src="${meal.strMealThumb}">
+            <img src="${meal.strMealThumb}" class="popup-image">
             <div class="popup-title">
               <h2 class="project-title">${meal.strMeal}</h2>
             </div>
