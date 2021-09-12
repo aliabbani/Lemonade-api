@@ -48,6 +48,79 @@ body {
   color: #fff;
 }
 
+.details-container {
+  background-color: white;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  clear: left;
+  z-index: 3;
+  position: fixed;
+  top: 0.1%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.details-container img {
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.details-container span {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.commentsDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.popup-title,
+.comment-center,
+.add-comment-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0d6efd;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-item {
+  list-style-type: none;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.name {
+  width: 35vw;
+}
+
+.comment {
+  width: 50vw;
+  height: 7vh;
+}
+
+.popup-comment {
+  width: 20vw;
+}
+
 @media screen and (min-width: 840px) {
   .fa-heart {
     cursor: pointer;
@@ -113,37 +186,4 @@ body {
     flex-direction: column;
     padding: 0 6vw 0 0;
   }
-}
-
-.details-container {
-  background-color: rgb(231, 231, 231);
-  padding: 16px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  clear: left;
-  z-index: 3;
-  position: fixed;
-  top: 5%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  box-sizing: border-box;
-  overflow: auto;
-}
-
-.details-container img {
-  width: 25%;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.details-container span {
-  margin-right: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 5px;
-  text-align: right;
 }
