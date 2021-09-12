@@ -20,7 +20,7 @@ This is about building web application based on an external API. we selected an 
 
 ## Live Demo
 
-[Live Demo Link](https://aliabbani.github.io/Lemonade-api/dist/)
+[Live Demo Link](https://condescending-nobel-12b419.netlify.app)
 
 ## Video Link
 
