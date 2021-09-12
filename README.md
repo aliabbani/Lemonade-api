@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Lemonade
+# Lemonade-api
 
 > Building A food rating App
 
@@ -20,7 +20,7 @@ This is about building web application based on an external API. we selected an 
 
 ## Live Demo
 
-[Live Demo Link](https://aliabbani.github.io/javaScript-capstone-project/dist)
+[Live Demo Link](https://aliabbani.github.io/Lemonade-api/dist/)
 
 ## Video Link
 
