@@ -187,9 +187,13 @@ body {
     padding: 0 6vw 0 0;
   }
 
+  .details-container {
+    padding-left: 15vw;
+  }
+
   .popup-image {
     display: flex;
     align-items: center;
-    padding: 0 15vw;
+    padding: 0 15vw 0 0;
   }
 }
