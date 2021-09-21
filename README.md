@@ -4,7 +4,7 @@
 
 # Lemonade-api
 
-> Building A food rating App
+> Building a food rating App
 
 ![screenshot](./src/images/Capture.PNG)
 
@@ -16,7 +16,7 @@ This is about building web application based on an external API. we selected an 
 - CSS
 - JavaScript
 - Webpack
-- JestLibrary
+- Jest Library
 
 ## Live Demo
 
